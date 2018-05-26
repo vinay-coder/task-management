@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 10
+  port: 5432
+  host: localhost
+  username: postgres
+  password: 12345678
+
+development:
+  <<: *default
+  database: tasks_management_development
+
+test:
+  <<: *default
+  database: tasks_management_test
+
+production:
+  <<: *default
+  database: tasks_management_production
+  username: tasks_management
+  password: <%= ENV['TASKS_MANAGEMENT_DATABASE_PASSWORD'] %>
