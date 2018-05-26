@@ -1,6 +1,9 @@
-<h1>Tasks</h1>
 
-<table>
+<div class="cool-md-12">
+  <input type="text" name="search" class="form-control" id="search-query" placeholder="Search here....">
+</div>
+<br><br>
+<table id="table_id" class="display">
   <thead>
     <tr>
       <th>Category</th>
@@ -21,3 +24,10 @@
     <% end %>
   </tbody>
 </table>
+
+<script>
+  $(document).on('keyup', '#search-query', function(){
+    table = $('#table_id').DataTable()
+    table.search(this.value).draw()
+  });
+</script>
