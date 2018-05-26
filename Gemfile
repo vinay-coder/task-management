@@ -41,6 +41,9 @@ gem 'jquery-rails'
 # For assets compile on heroku server
 gem 'rails_12factor', '~> 0.0.3'
 
+# User authentication
+gem 'devise', '~> 4.4', '>= 4.4.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug', platforms: [:mri, :mingw, :x64_mingw]
