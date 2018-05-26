@@ -26,6 +26,16 @@
     <%= form.text_area :description, id: :task_description %>
   </div>
 
+  <h3>Files</h3>
+  <div id='file_paths'>
+    <%= form.fields_for :file_paths do |file| %>
+      <%= render 'file_path', :f => file %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add file path', form, :file_paths %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

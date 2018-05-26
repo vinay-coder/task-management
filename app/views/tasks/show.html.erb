@@ -15,5 +15,12 @@
   <%= @task.description %>
 </p>
 
+<h5>Files</h5>
+<ul>
+  <% @task.file_paths.each do |file_path| %>
+    <li><%= file_path.name %></li>
+  <% end if @task.file_paths.present? %>
+</ul>
+
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
