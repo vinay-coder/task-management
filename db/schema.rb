@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20180526073146) do
 
   create_table "file_paths", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.integer "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
