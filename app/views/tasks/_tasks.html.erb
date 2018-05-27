@@ -1,0 +1,13 @@
+<div class="col-md-12 all-tasks">
+  <% @tasks.each do |task| %>
+    <div class="task">
+      <h4><%= task.title %></small></h4>
+      <p><%= task.description.truncate(100) %></p>
+      <small><b>by:</b> <%= task.user.email %> on <%= task.created_at_date %></small>
+      <small class="actions pull-right">
+        <%= link_to 'Edit', edit_task_path(task) %> |
+        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </small>
+    </div>
+  <% end %>
+</div>

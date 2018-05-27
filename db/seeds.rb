@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+(1..50).map do |i|
+  User.all.sample.tasks.create(category: "Category #{i}", title: "Title for task #{i}", description: "Description for Task #{i}")
+end
