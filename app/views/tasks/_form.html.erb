@@ -13,30 +13,30 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.text_field :category, id: :task_category %>
+    <%= form.text_field :category, id: :task_category, class: "form-control", placeholder: '' %>
   </div>
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :task_title %>
+    <%= form.text_field :title, id: :task_title, class: "form-control", placeholder: '' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :task_description %>
+    <%= form.text_area :description, id: :task_description, class: "form-control", placeholder: '' %>
   </div>
 
   <h3>Files</h3>
   <div id='file_paths'>
     <%= form.fields_for :file_paths do |file| %>
-      <%= render 'file_path', :f => file %>
+      <%= render 'file_path_fields', :f => file %>
     <% end %>
     <div class='links'>
-      <%= link_to_add_association 'add file path', form, :file_paths %>
+      <%= link_to_add_association 'add file path', form, :file_paths, class: 'btn btn-primary' %>
     </div>
   </div>
-
+  <br><br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create Task', class: 'btn btn-primary form-control' %>
   </div>
 <% end %>

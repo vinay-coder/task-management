@@ -6,4 +6,8 @@ class Task < ApplicationRecord
   def created_at_date
     created_at.strftime("%d %b, %y")
   end
+
+  def created_by?(current_user)
+    user_id.eql?(current_user.id)
+  end
 end
