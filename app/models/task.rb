@@ -8,6 +8,6 @@ class Task < ApplicationRecord
   end
 
   def created_by?(current_user)
-    user_id.eql?(current_user.id)
+    user_id.eql?(current_user.id) rescue false
   end
 end
