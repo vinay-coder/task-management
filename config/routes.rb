@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  post 'dashboard/search'
+
   resources :tasks do
     collection do
       get :my_tasks

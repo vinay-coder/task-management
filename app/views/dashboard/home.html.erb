@@ -1,6 +1,24 @@
 <div class="cool-md-12">
+  <%= select_tag :category, options_for_select(Task::CATEGORIES), class: "form-control category-for", prompt: 'Select category(Default: All)' %>
+  <br>
   <input type="text" name="search" class="form-control" id="search-query" placeholder="Search here....">
 </div>
 <br><br>
 
-<%= render partial: 'tasks/tasks' %>
+<div class="col-md-12 all-tasks">
+  <%= render partial: 'tasks/tasks' %>
+</div>
+
+<script>
+  $(document).on('keyup', '#search-query',function(){
+    var query = $(this).val();
+    var category = $('.category-for').val();
+    if (query.length >= 3) {
+      $.ajax({
+        type: "POST",
+        url: "<%= dashboard_search_path %>",
+        data: { category: category, query: query }
+      });
+    }
+  });
+</script>
