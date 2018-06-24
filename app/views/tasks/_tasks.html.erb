@@ -1,13 +1,29 @@
-<% @tasks.each do |task| %>
-  <div class="task">
-    <h4><%= task.title %></small></h4>
-    <p><%= task.description.truncate(100) %></p>
-    <small><b>by:</b> <%= task.user.email %> on <%= task.created_at_date %></small>
-    <% if task.created_by?(current_user)%>
-      <small class="actions pull-right">
-        <%= link_to 'Edit', edit_task_path(task) %> |
-        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </small>
-    <% end %>
+<div class="row">
+  <div class="col-md-3">
+    Total: <%= @tasks.count %>
   </div>
+  <div class="col-md-3">
+    Configuration: <%= @tasks.group_by(&:category)["Configuration"].count %>
+  </div>
+  <div class="col-md-3">
+    Code: <%= @tasks.group_by(&:category)["Code"].count %>
+  </div>
+  <div class="col-md-3">
+    ILV: <%= @tasks.group_by(&:category)["ILV"].count %>
+  </div>
+</div>
+<% @tasks.each do |task| %>
+  <a href="<%= task_path(task) %>" style="    text-decoration: none;">
+    <div class="task">
+      <h4><%= task.title %></small></h4>
+      <p><%= task.description.truncate(100) %></p>
+      <small><b>by:</b> <%= task.user.email %> on <%= task.created_at_date %></small>
+      <% if task.created_by?(current_user)%>
+        <small class="actions pull-right">
+          <%= link_to 'Edit', edit_task_path(task) %> |
+          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </small>
+      <% end %>
+    </div>
+  </a>
 <% end %>

@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :must_authenticate_user, only: [:new, :edit, :create, :update, :destroy]
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :find_task, only: [:show]
 
   def index
     @tasks = Task.all
@@ -55,12 +56,14 @@ class TasksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def find_task
+      @task = Task.find(params[:id])
+    end
+
     def set_task
       @task = current_user.tasks.find(params[:id]) rescue unauthenticate_try
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:category, :title, :description, file_paths_attributes: [:id, :name, :description, :_destroy])
     end

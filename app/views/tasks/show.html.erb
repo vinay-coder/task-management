@@ -20,5 +20,7 @@
   <% end if @task.file_paths.present? %>
 </ul>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<% if @task.created_by?(current_user) %>
+  <%= link_to 'Edit', edit_task_path(@task) %> |
+<% end %>
+  <%= link_to 'Back', tasks_path %>
