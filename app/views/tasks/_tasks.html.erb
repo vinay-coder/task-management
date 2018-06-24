@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-md-3">
-    Total: <%= @tasks.count %>
+    Total: <%= @tasks.try(:count) %>
   </div>
   <div class="col-md-3">
-    Configuration: <%= @tasks.group_by(&:category)["Configuration"].count %>
+    Configuration: <%= @tasks.group_by(&:category)["Configuration"].try(:count) %>
   </div>
   <div class="col-md-3">
-    Code: <%= @tasks.group_by(&:category)["Code"].count %>
+    Code: <%= @tasks.group_by(&:category)["Code"].try(:count) %>
   </div>
   <div class="col-md-3">
-    ILV: <%= @tasks.group_by(&:category)["ILV"].count %>
+    ILV: <%= @tasks.group_by(&:category)["ILV"].try(:count) %>
   </div>
 </div>
 

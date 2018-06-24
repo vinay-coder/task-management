@@ -7,6 +7,8 @@ class DashboardController < ApplicationController
   end
 
   def search
-    @tasks = Task.with_category(params[:category]).where('title LIKE ?', '%'+params[:query]+'%')
+
+    # binding.pry
+    @tasks = Task.with_category(params['category']).where('title LIKE ?', '%'+params['query']+'%')
   end
 end
