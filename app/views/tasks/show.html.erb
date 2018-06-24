@@ -13,14 +13,19 @@
   <%= @task.description %>
 </p>
 
-<h5>Files</h5>
+<h5><b>Files:</b></h5>
 <ul>
   <% @task.file_paths.each do |file_path| %>
     <li><%= file_path.name %></li>
   <% end if @task.file_paths.present? %>
 </ul>
+<br>
+<h4>Comments or Suggestions:</h4>
+
+<%= render partial: 'comments/comments', locals: { task: @task } %>
 
 <% if @task.created_by?(current_user) %>
   <%= link_to 'Edit', edit_task_path(@task) %> |
 <% end %>
-  <%= link_to 'Back', tasks_path %>
+
+<%= link_to '<- Back', tasks_path %>

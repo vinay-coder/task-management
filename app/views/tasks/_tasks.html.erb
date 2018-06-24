@@ -12,6 +12,7 @@
     ILV: <%= @tasks.group_by(&:category)["ILV"].count %>
   </div>
 </div>
+
 <% @tasks.each do |task| %>
   <a href="<%= task_path(task) %>" style="    text-decoration: none;">
     <div class="task">

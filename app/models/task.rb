@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :user
   has_many :file_paths
+  has_many :comments
   accepts_nested_attributes_for :file_paths, reject_if: :all_blank, allow_destroy: true
   CATEGORIES = %w(Configuration Code ILV)
 

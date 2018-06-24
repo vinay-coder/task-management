@@ -1,0 +1,2 @@
+$("#comments-for-task-<%= @task.id%>").append("<%= escape_javascript(render partial: 'comments/comment', locals: {comment: @comment}) %>")
+$("#comment-form-for-task-<%= @task.id %>").find('#comment_content').val("");
