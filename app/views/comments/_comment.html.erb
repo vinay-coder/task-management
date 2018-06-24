@@ -1,3 +1,10 @@
-<div class="commment" id="comment-<%= comment.id %>">
+<div class="comment" id="comment-<%= comment.id %>">
   <%= comment.content %>
+  <div class="commenter-detail">
+    <small>
+      by <b><%= comment.user.email %></b>
+      on <b><%= comment.created_at.strftime("%d %b, %y") %></b>
+      at <b><%= comment.created_at.strftime("%H:%M %p") %></b>
+    </small>
+  </div>
 </div>

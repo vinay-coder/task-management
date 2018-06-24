@@ -14,7 +14,7 @@
 </div>
 
 <% @tasks.each do |task| %>
-  <a href="<%= task_path(task) %>" style="    text-decoration: none;">
+  <a href="<%= task_path(task) %>" class="task-link">
     <div class="task">
       <h4><%= task.title %></small></h4>
       <p><%= task.description.truncate(100) %></p>
