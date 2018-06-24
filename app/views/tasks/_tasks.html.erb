@@ -3,13 +3,13 @@
     Total: <%= @tasks.try(:count) %>
   </div>
   <div class="col-md-3">
-    Configuration: <%= @tasks.group_by(&:category)["Configuration"].try(:count) %>
+    Configuration: <%= @tasks.group_by(&:category)["Configuration"].try(:count) || 0 %>
   </div>
   <div class="col-md-3">
-    Code: <%= @tasks.group_by(&:category)["Code"].try(:count) %>
+    Code: <%= @tasks.group_by(&:category)["Code"].try(:count) || 0 %>
   </div>
   <div class="col-md-3">
-    ILV: <%= @tasks.group_by(&:category)["ILV"].try(:count) %>
+    ILV: <%= @tasks.group_by(&:category)["ILV"].try(:count) || 0 %>
   </div>
 </div>
 
