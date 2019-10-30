@@ -42,7 +42,7 @@ gem 'jquery-rails'
 gem 'rails_12factor', '~> 0.0.3'
 
 # User authentication
-gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'devise', '~> 4.7'
 
 # For nested form
 gem "cocoon"
